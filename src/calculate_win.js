@@ -16,7 +16,7 @@ export function calculateWinner(squares) {
   for (const i in squares) {
   	if (squares.hasOwnProperty(i)) {
   	  switch (squares[i]) {
-        case '×':
+        case 'X':
           x.push(parseInt(i));
           break;
         case 'O':
@@ -30,7 +30,7 @@ export function calculateWinner(squares) {
 
   wins.forEach(condition => {
     if (x.includes(condition[0]) && x.includes(condition[1]) && x.includes(condition[2])) {
-      winner = '×';
+      winner = 'X';
     } else if (o.includes(condition[0]) && o.includes(condition[1]) && o.includes(condition[2])) {
       winner = 'O';
     }

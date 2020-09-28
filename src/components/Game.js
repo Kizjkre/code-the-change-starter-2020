@@ -8,7 +8,7 @@ const Game = () => {
   const [xIsNext, setXIsNext] = useState(true);
 
   const winner = calculateWinner(board);
-  const next = xIsNext ? '×' : 'O';
+  const next = xIsNext ? 'X' : 'O';
 
   const handleClick = i => {
     if (!winner) {
@@ -33,11 +33,11 @@ const Game = () => {
 
   return (
     <>
-      <h1>Tic Tac Toe</h1>
+      <h1 className="title">Tic Tac Toe</h1>
       <Board squares={ board } onClick={ i => handleClick(i) } />
-      <div className='info-wrapper'>
+      <div className="info-wrapper">
         <div>
-          <button onClick={ jumpToStart }>Go to Start</button>
+          <button className="start" onClick={ jumpToStart }>Go to Start</button>
         </div>
         <h3>{ result() }</h3>
       </div>
