@@ -13,16 +13,36 @@ const Game = () => {
   const handleClick = i => {
     if (!winner) {
       const temp = JSON.parse(JSON.stringify(board));
-      temp[i] = next;
-      setBoard(temp);
-      setStepNumber(stepNumber + 1);
-      setXIsNext(!xIsNext);
+      if (!temp[i]) {
+        temp[i] = next;
+        setBoard(temp);
+        setStepNumber(stepNumber + 1);
+        setXIsNext(!xIsNext);
+      }
     }
   };
 
+  const jumpToStart = () => {
+    const temp = JSON.parse(JSON.stringify(board));
+    setBoard(temp.fill(null));
+    setStepNumber(0);
+    setXIsNext(true);
+  };
+
+  const result = () => winner ? `Winner: ${ winner }` : !board.some(square => square === null) ? `Tie Game` : `Next Player: ${ next }`;
+
   return (
-    <Board squares={ board } onClick={ i => handleClick(i) } />
-  );
+    <>
+      <h1>Tic Tac Toe</h1>
+      <Board squares={ board } onClick={ i => handleClick(i) } />
+      <div className='info-wrapper'>
+        <div>
+          <button onClick={ jumpToStart }>Go to Start</button>
+        </div>
+        <h3>{ result() }</h3>
+      </div>
+    </>
+);
 };
 
 export default Game;

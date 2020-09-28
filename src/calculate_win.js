@@ -32,7 +32,7 @@ export function calculateWinner(squares) {
     if (x.includes(condition[0]) && x.includes(condition[1]) && x.includes(condition[2])) {
       winner = '×';
     } else if (o.includes(condition[0]) && o.includes(condition[1]) && o.includes(condition[2])) {
-      winner = 'o';
+      winner = 'O';
     }
   });
 

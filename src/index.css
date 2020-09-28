@@ -16,6 +16,7 @@ body {
 
 .board {
   border: 1rem solid black;
+  border-radius: 1rem;
   background: black;
   width: 500px;
   height: 500px;
@@ -26,6 +27,7 @@ body {
 
 .squares {
   background: white;
+  border-radius: 0.5rem;
   color: black;
   border: none;
   font-size: 5rem;
